@@ -39,11 +39,12 @@
 
 .nav-bar-wrapper{
   display:flex;
-  justify-content: space-between;
-  padding:15px;
+  justify-content: space-evenly;
+  padding:1rem;
   background-color: blueviolet;
   color:white;
   font-weight:bold;
+  
 }
 
 .img{

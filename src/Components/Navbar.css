@@ -1,0 +1,14 @@
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.navbar .form-control {
+  min-width: 200px;
+}
+
+@media (max-width: 576px) {
+  .nav-bar-wrapper .items {
+    font-size: 0.9rem; 
+  }
+}

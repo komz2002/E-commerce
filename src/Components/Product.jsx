@@ -6,10 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Product = ({ items, cart, setCart }) => {
   const addToCart = (id, price, title, description, imgSrc) => {
     const obj = { id, price, title, description, imgSrc };
-
     
     setCart((prevCart) => [...prevCart, obj]);
-    
     
     toast.success('🦄 Your item is added!', {
       position: "top-right",
@@ -37,15 +35,15 @@ const Product = ({ items, cart, setCart }) => {
         draggable
         pauseOnHover
         theme="dark"
-        transition={Bounce} 
+        transition={Bounce}
       />
 
       <div className="container my-6">
         <div className="row">
           {items.map((product) => {
             return (
-              <div key={product.id} className="col-lg-4 col-md-6 my-3 text-center">
-                <div className="card" style={{ width: "18rem" }}>
+              <div key={product.id} className="col-lg-4 col-md-6 col-sm-12 my-3 text-center">
+                <div className="card" style={{ width: "100%" }}>
                   <Link 
                     to={`/product/${product.id}`}
                     style={{
@@ -56,7 +54,7 @@ const Product = ({ items, cart, setCart }) => {
                   >
                     <img
                       src={product.imgSrc}
-                      className="card-img-top"
+                      className="card-img-top img-fluid"
                       alt={product.title}
                     />
                   </Link>
@@ -70,7 +68,7 @@ const Product = ({ items, cart, setCart }) => {
                       onClick={() => addToCart(product.id, product.price, product.title, product.description, product.imgSrc)}
                       className="btn btn-warning"
                     >
-                      buy now
+                      Buy Now
                     </button>
                   </div>
                 </div>
@@ -79,6 +77,20 @@ const Product = ({ items, cart, setCart }) => {
           })}
         </div>
       </div>
+
+      
+      <style jsx>{`
+        .card-img-top {
+          object-fit: contain;
+          height: auto;
+        }
+        
+        @media (max-width: 576px) {
+          .card {
+            width: 100%; 
+          }
+        }
+      `}</style>
     </>
   );
 };
